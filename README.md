@@ -10,4 +10,4 @@ stream table
 #### Chat usage data:
 chat table
 
-The Twitch Science Team provided this practice dataset. You can download the .csv files (800,000 rows) from GitHub.
+The Twitch Science Team provided this practice dataset. You can download the .csv files (800,000 rows) from GitHub: https://github.com/Codecademy-Curriculum/Codecademy-Learn-SQL-from-Scratch/tree/master/Twitch
