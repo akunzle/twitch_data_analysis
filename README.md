@@ -4,10 +4,10 @@ Twitch is the world’s leading live-streaming platform for gamers, with 15 mill
 
 In this project, you will be working with two tables that contain Twitch users’ stream viewing data and chat room usage data.
 
-## Stream viewing data: 
+#### Stream viewing data: 
 stream table
 
-## Chat usage data:
+#### Chat usage data:
 chat table
 
 The Twitch Science Team provided this practice dataset. You can download the .csv files (800,000 rows) from GitHub.
