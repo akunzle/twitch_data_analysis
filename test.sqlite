@@ -13,11 +13,15 @@ SELECT DISTINCT channel FROM stream;
 -- What are the most popular games in the stream table?
 SELECT game, COUNT(*) FROM stream GROUP BY 1 ORDER BY 2 DESC;
 
--- Create a list of countries and their number of viewers using WHERE and GROUP BY for the most popular game.
+-- Where are these game stream viewers located? Create a list of countries and their number of viewers using WHERE and GROUP BY for the most popular game.
 SELECT country, COUNT(*) FROM stream WHERE game = "League of Legends" GROUP BY 1 ORDER BY 2 DESC;
 
+-- The player column contains the source the user is using to view the stream (site, iphone, android, etc).
+
+-- Create a list of players and their number of streamers.
 SELECT player, COUNT(*) FROM stream GROUP BY 1 ORDER BY 2 DESC;
 
+-- Create a new column named genre for each of the games. Group the games into their genres: Multiplayer Online Battle Arena (MOBA), First Person Shooter (FPS), Survival, and Other.
 SELECT game, 
   CASE 
     WHEN game = "League of Legends" THEN "MOBA"
@@ -30,20 +34,24 @@ SELECT game,
   END as "genre",
   COUNT(*)
 FROM stream GROUP BY 1 ORDER BY 3 DESC;
-    
+
+-- Exploring the time column from the stream table
 SELECT time
 FROM stream
 LIMIT 10;
 
+-- Formatting date to returns the seconds, SS, of the timestamp column
 SELECT time,
    strftime('%S', time)
 FROM stream
 GROUP BY 1
 LIMIT 20;
 
+-- A query that returns two columns, the hours of the time column and the view count for each hour. Also filter the rsult with only the uses in your country.
 SELECT strftime('%H', time), COUNT(*)
 FROM stream
 WHERE country = "NL"
 GROUP BY 1;
 
+-- Joining the stream table and the chat table on their shared column, device_id.
 SELECT * FROM stream JOIN chat ON stream.device_id = chat.device_id;
